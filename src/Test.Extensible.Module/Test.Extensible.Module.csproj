@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Extensible\Extensible.csproj" />
+    <ProjectReference Include="..\Test.Extensible.Shared\Test.Extensible.Shared.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="COPY /Y &quot;$(ProjectDir)$(OutDir)$(TargetFileName)&quot; &quot;$(SolutionDir)Test.Modules\Path1\$(TargetFileName)&quot;&#xD;&#xA;COPY /Y &quot;$(ProjectDir)$(OutDir)$(TargetFileName)&quot; &quot;$(SolutionDir)Test.Modules\Path2\$(TargetFileName)&quot;&#xD;&#xA;COPY /Y &quot;$(ProjectDir)$(OutDir)$(TargetFileName)&quot; &quot;$(SolutionDir)Test.Modules\Path3\$(TargetName).mod&quot;" />
+  </Target>
+
+</Project>

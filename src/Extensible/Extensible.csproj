@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net35;net40;net45;netstandard2.0</TargetFrameworks>
+    <Version>0.1.1</Version>
+    <Authors>Benn Lazell and contributors</Authors>
+    <Description>Placeholder description</Description>
+    <Copyright>Benn Lazell and contributors</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/mrb0nj/Extensible</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mrb0nj/Extensible</RepositoryUrl>
+    <PackageTags>Extensibility Modules Plugins Reflection</PackageTags>
+    <AssemblyVersion>0.1.1.0</AssemblyVersion>
+    <FileVersion>0.1.1.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+</Project>
