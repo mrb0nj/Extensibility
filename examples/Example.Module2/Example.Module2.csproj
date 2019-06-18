@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Example.Extensibility\Example.Extensibility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extensible" Version="0.1.2" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="COPY /Y &quot;$(ProjectDir)$(OutDir)$(TargetFileName)&quot; &quot;$(SolutionDir)Modules\$(TargetFileName)&quot;" />
+  </Target>
+
+</Project>
