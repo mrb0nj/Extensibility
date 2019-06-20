@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+examples/Modules/*.dll
+src/Test.Modules/**/*.dll
+src/Test.Modules/**/*.mod
+
 # User-specific files
 *.suo
 *.user
