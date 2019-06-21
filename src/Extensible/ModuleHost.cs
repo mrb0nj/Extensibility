@@ -2,6 +2,7 @@ using Extensible.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Extensible
 {
@@ -24,6 +25,17 @@ namespace Extensible
         }
 
     }
+    [AttributeUsage(AttributeTargets.All)]
+    public class ModulePriorityAttribute : Attribute
+    {
+        public int Priority { get; set; }
+        public ModulePriorityAttribute(int priority)
+        {
+            Priority = priority;
+        }
+    }
+
+    
 
     public class ModuleHost
     {
@@ -32,7 +44,7 @@ namespace Extensible
             if (moduleEvent == null) throw new ArgumentNullException(nameof(moduleEvent));
             if (args == null) throw new ArgumentNullException(nameof(args));
 
-            moduleEvent.Invoke(args);
+            Invoke(moduleEvent, args);
         }
 
         protected T InvokeCancelableModuleEvent<T>(Action<T> moduleEvent, T args)
@@ -40,14 +52,18 @@ namespace Extensible
             if (moduleEvent == null) throw new ArgumentNullException(nameof(moduleEvent));
             if (args == null) throw new ArgumentNullException(nameof(args));
 
+            return Invoke(moduleEvent, args);
+        }
+
+        private static T Invoke<T>(Action<T> moduleEvent, T args)
+        {
             var cancel = false;
-
-            foreach (var d in moduleEvent.GetInvocationList())
+            foreach (var d in moduleEvent.GetInvocationListByPriority())
             {
-                var eventDelegate = d as Action<T>;
-
-                if (eventDelegate == null) continue;
                 if (cancel) break;
+
+                var eventDelegate = d as Action<T>;
+                if (eventDelegate == null) continue;
 
                 eventDelegate(args);
 
