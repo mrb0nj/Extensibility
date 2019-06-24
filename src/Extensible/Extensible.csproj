@@ -2,16 +2,18 @@
 
   <PropertyGroup>
     <TargetFrameworks>net35;net40;net45;netstandard2.0</TargetFrameworks>
-    <Version>0.1.2</Version>
+    <Version>0.3.0</Version>
     <Authors>Benn Lazell and contributors</Authors>
-    <Description>Placeholder description</Description>
+    <Description>Extensible aims to make adding extensilbilty points/events easier, using a generic ModuleHost which can load your Modules using a number of 'Loaders'.
+
+See the README for some basic usage info or the full working example application here: https://github.com/mrb0nj/Extensible/tree/master/examples</Description>
     <Copyright>Benn Lazell and contributors</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/mrb0nj/Extensible</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mrb0nj/Extensible</RepositoryUrl>
     <PackageTags>Extensibility Modules Plugins Reflection</PackageTags>
-    <AssemblyVersion>0.1.2.0</AssemblyVersion>
-    <FileVersion>0.1.2.0</FileVersion>
+    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <FileVersion>0.3.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
